@@ -29,7 +29,8 @@ dataStratDesign = svydesign(id = ~1, strata = ~ Stratum, data = dataStratFull)
 
 svymean(~ dataStratFull$y , dataStratDesign)
 ```
-Now we are going to select a random sample from clusters.  Y, x1, and x4 (previously x3) are the same as before, and now we have a variable titled x3 that identifies the cluster.  In this example, there are 100 clusters with 100 data points in each cluster.  To select the data based upon cluster we use the cluster function.  The cluster function is the same as the strata, but instead of strataname, we input the clustername (x3 in this example) and then select the number of data points we want from each cluster indicated by the size argument, which is 50 in this example.  Then for the survey design instead of identifying the strata variable, the user will identify the cluster variable.     
+Now we are going to select a random sample from clusters.  Y, x1, and x4 (previously x3) are the same as before, and now we have a variable titled x3 that identifies the cluster.  In this example, there are 100 clusters with 100 data points in each cluster.  To select the data based upon cluster we use the cluster function.  The cluster function is the same as the strata, but instead of strataname, we input the clustername (x3 in this example) and then select the number of data points we want from each cluster indicated by the size argument, which is 50 in this example.  The total sample is size 5,000, because we are selecting 50 clusters from the 100 possible clusters.  There are 100 data points for each cluster (50*100 = 5,000).  
+  Then for the survey design instead of identifying the strata variable, the user will identify the cluster variable.     
 ```{r, message=FALSE, warning=FALSE}
 
 set.seed(123)
